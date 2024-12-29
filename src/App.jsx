@@ -1,10 +1,16 @@
+import React from 'react'
+import Sidebar from './layouts/Sidebar'
+import Timeline from './layouts/Timeline'
+import RightSidebar from './layouts/RightSidebar'
 import './App.css'
 
-function App() {
+const App = () => {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <div class="grid grid-cols-4 gap-4">
+      <Sidebar />
+      <Timeline />
+      <RightSidebar />
+    </div>
   )
 }
 
