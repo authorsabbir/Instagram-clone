@@ -4,6 +4,9 @@ body{
 .as-border{
   border-inline-end-width: 1px;
 }
+.as-border-top{
+  border-top: 1px solid gray;
+}
 .as-font-size{
   font-size: 18px;
 }

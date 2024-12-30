@@ -1,37 +1,75 @@
 import React from 'react'
-import InstagramLogo from '../components/logo'
+import InstagramLogo from '../components/logo/logo'
+import MenuItemList from '../components/menu/MenuItemList'
+import BottomItemList from '../components/menu/BottomItemList'
 import {
   AiOutlineHome,
   AiOutlineSearch,
   AiOutlineBell,
   AiOutlineUser,
-  AiOutlineCompass, // For Explore
-  AiOutlineMessage, // For Messages
-  AiOutlinePlus, // For Create
-  AiOutlineAppstoreAdd, // For Threads
-  AiOutlineMenu, // For More (Hamburger menu)
+  AiOutlineCompass,
+  AiOutlineMessage,
+  AiOutlinePlus,
+  AiOutlineAppstoreAdd,
+  AiOutlineMenu,
 } from 'react-icons/ai'
 
 const Sidebar = () => {
-  // Define menu items with appropriate icons and labels
+  // Main menu items
   const menuItems = [
-    { icon: <AiOutlineHome className="w-7 h-7 font-bold" />, label: 'Home' },
-    { icon: <AiOutlineSearch className="w-7 h-7" />, label: 'Search' },
-    { icon: <AiOutlineCompass className="w-7 h-7" />, label: 'Explore' },
-    { icon: <AiOutlinePlus className="w-7 h-7" />, label: 'Create' },
-    { icon: <AiOutlineMessage className="w-7 h-7" />, label: 'Messages' },
-    { icon: <AiOutlineBell className="w-7 h-7" />, label: 'Notifications' },
-    { icon: <AiOutlineUser className="w-7 h-7" />, label: 'Profile' },
+    {
+      icon: <AiOutlineHome className="w-7 h-7" />,
+      label: 'Home',
+      action: () => console.log('Home clicked'),
+    },
+    {
+      icon: <AiOutlineSearch className="w-7 h-7" />,
+      label: 'Search',
+      action: () => console.log('Search clicked'),
+    },
+    {
+      icon: <AiOutlineCompass className="w-7 h-7" />,
+      label: 'Explore',
+      action: () => console.log('Explore clicked'),
+    },
+    {
+      icon: <AiOutlinePlus className="w-7 h-7" />,
+      label: 'Create',
+      action: () => console.log('Create clicked'),
+    },
+    {
+      icon: <AiOutlineMessage className="w-7 h-7" />,
+      label: 'Messages',
+      action: () => console.log('Messages clicked'),
+    },
+    {
+      icon: <AiOutlineBell className="w-7 h-7" />,
+      label: 'Notifications',
+      action: () => console.log('Notifications clicked'),
+    },
+    {
+      icon: <AiOutlineUser className="w-7 h-7" />,
+      label: 'Profile',
+      action: () => console.log('Profile clicked'),
+    },
   ]
 
-  // Add two more items for Threads and More (Hamburger menu)
+  // Bottom menu items
   const bottomItems = [
-    { icon: <AiOutlineAppstoreAdd className="w-7 h-7" />, label: 'Threads' },
-    { icon: <AiOutlineMenu className="w-7 h-7" />, label: 'More' }, // Hamburger menu icon
+    {
+      icon: <AiOutlineAppstoreAdd className="w-7 h-7" />,
+      label: 'Threads',
+      action: () => console.log('Threads clicked'),
+    },
+    {
+      icon: <AiOutlineMenu className="w-7 h-7" />,
+      label: 'More',
+      action: () => console.log('More clicked'),
+    },
   ]
 
   return (
-    <aside className="text-white border-r border-gray-700 h-screen  lg:w-64 flex flex-col items-center lg:items-start p-4">
+    <aside className="bg-black text-white border-r border-gray-700 h-screen w-20 lg:w-64 flex flex-col items-center lg:items-start p-4 fixed">
       {/* Logo Section */}
       <div className="mb-6">
         <InstagramLogo />
@@ -39,34 +77,12 @@ const Sidebar = () => {
 
       {/* Main Menu Items */}
       <nav className="w-full flex-grow">
-        <ul className="space-y-2 ms-3">
-          {menuItems.map((item, index) => (
-            <div className="as-menu-bg p-3 rounded-md" key={index}>
-              <li className="flex flex-col lg:flex-row items-center lg:items-start space-x-3 cursor-pointer hover:text-blue-400">
-                {item.icon}
-                <span className="hidden lg:inline as-font-size">
-                  {item.label}
-                </span>
-              </li>
-            </div>
-          ))}
-        </ul>
+        <MenuItemList items={menuItems} />
       </nav>
 
       {/* Bottom Menu Items */}
       <nav className="w-full mt-auto">
-        <ul className="space-y-2 ms-3">
-          {bottomItems.map((item, index) => (
-            <div className="as-menu-bg p-3 rounded-md" key={index}>
-              <li className="flex flex-col lg:flex-row items-center lg:items-start space-x-3 cursor-pointer hover:text-blue-400">
-                {item.icon}
-                <span className="hidden lg:inline as-font-size">
-                  {item.label}
-                </span>
-              </li>
-            </div>
-          ))}
-        </ul>
+        <BottomItemList items={bottomItems} />
       </nav>
     </aside>
   )
